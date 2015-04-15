@@ -10,14 +10,24 @@ public class Blueprint {
 
     private List<Point> points=null;
     
-    public Blueprint(Point[] pnts){
+    String name=null;
+    
+    public Blueprint(String name,Point[] pnts){
+        this.name=name;
         points=Arrays.asList(pnts);
     }
           
-    public Blueprint(){
+    public Blueprint(String name){
+        this.name=name;
         points=new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    
+    
     public List<Point> getPoints() {
         return points;
     }
