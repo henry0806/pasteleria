@@ -20,7 +20,14 @@
             </select>
             <button ng-click="obtenerClientes()">Cargar clientes</button>
         </div>
-        
+                <div ng-controller="controlInventarios" >
+            <select ng-model="idInventarioSeleccionado">
+                <option ng-repeat="o in inventarios" value="{{o}}">
+                    {{o}}
+                </option>
+            </select>
+            <button ng-click="obtenerInventarios()">Cargar inventarios</button>
+        </div>
         
     </body>
 </html>

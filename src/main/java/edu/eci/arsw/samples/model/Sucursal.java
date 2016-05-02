@@ -16,11 +16,12 @@ public class Sucursal {
     
     private int numero;
     private int telefono; 
-    private String Direccion; 
+    private String direccion; 
     private ArrayList<Inventario> asistentes;
     private ArrayList<Pedido>pedidos;
     private ArrayList<Cliente>clientes;
     private Pasteleria pasteleria;
+
 
     public int getNumero() {
         return numero;
@@ -39,11 +40,11 @@ public class Sucursal {
     }
 
     public String getDireccion() {
-        return Direccion;
+        return direccion;
     }
 
     public void setDireccion(String Direccion) {
-        this.Direccion = Direccion;
+        this.direccion = direccion;
     }
 
     public ArrayList<Inventario> getAsistentes() {

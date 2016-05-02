@@ -5,9 +5,8 @@
  */
 package edu.eci.arsw.controladores;
 
-import edu.eci.arsw.samples.model.Cliente;
-import edu.eci.arsw.services.ServicioCliente;
-import java.util.List;
+import edu.eci.arsw.samples.model.Inventario;
+import edu.eci.arsw.services.ServicioInventario;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,15 +19,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author castellanosisa
+ * @author 2092252
  */
-@RestController
-@RequestMapping("/cliente")
 
-public class ControladorCliente {
+@RestController
+@RequestMapping("/inventario")
+
+public class ControladorInventario {
     
     @Autowired
-    ServicioCliente services;
+    ServicioInventario services;
     
     
     @RequestMapping(value="/check",method = RequestMethod.GET)        
@@ -37,21 +37,18 @@ public class ControladorCliente {
     }
     
     @RequestMapping(method = RequestMethod.POST)        
-    public ResponseEntity<?> agregarCliente(@RequestBody Cliente c) {       
-        services.agregarCliente(c.getCedula()+"",c);
+    public ResponseEntity<?> agregarInventario(@RequestBody Inventario in) {       
+        services.agregarInventario(in.getNumero()+"",in);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public Set<String> getIdClientes() {       
-        return services.getIdClientes();
+    public Set<String> getIdInventario() {       
+        return services.getIdInventarios();
     }
     
-    @RequestMapping(value = "/{idCliente}",method = RequestMethod.GET)        
-    public Cliente getCliente(@PathVariable("idCliente") String cedula) {       
-        return services.getCliente(cedula);
+    @RequestMapping(value = "/{idInventario}",method = RequestMethod.GET)        
+    public Inventario getInventario(@PathVariable("idInventario") String numero) {       
+        return services.getInventario(numero);
     }
-
-
 }
-

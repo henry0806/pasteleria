@@ -15,6 +15,23 @@ app.controller('controlClientes',
                     alert('error' + headers);
                 });
    };
+}
+        );
+
+app.controller('controlInventarios',
+    function ($scope, $http) {
+    $scope.inventarios = [];
+    $scope.idInventarioSeleccionado;
+    $scope.obtenerInventarios = function(){
+        $http.get('rest/inventario').
+                success(function (data, status, headers, config) {
+                    $scope.inventarios = data;
+                    alert('success!');
+                }). 
+                error(function (data, status, headers, config) {
+                    alert('error' + headers);
+                });
+   };
 });
   
 })();
