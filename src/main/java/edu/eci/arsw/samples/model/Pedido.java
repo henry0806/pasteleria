@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pasteleria;
+package edu.eci.arsw.samples.model;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -13,6 +15,10 @@ public class Pedido {
     
     private int numPedido; 
     private int precioTotal; 
+    private boolean pedidoListo; 
+    private ArrayList<Producto> productos;
+    private Sucursal sucursal;
+    private Cliente cliente;
 
     public int getNumPedido() {
         return numPedido;
@@ -37,5 +43,30 @@ public class Pedido {
     public void setPedidoListo(boolean pedidoListo) {
         this.pedidoListo = pedidoListo;
     }
-    private boolean pedidoListo; 
+
+    public ArrayList<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(ArrayList<Producto> productos) {
+        this.productos = productos;
+    }
+
+    public Sucursal getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(Sucursal sucursal) {
+        this.sucursal = sucursal;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    
 }

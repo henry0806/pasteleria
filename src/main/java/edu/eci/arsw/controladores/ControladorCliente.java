@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.cosw.controllers;
+package edu.eci.arsw.controladores;
 
-import edu.eci.cosw.samples.model.Blueprint;
-import edu.eci.cosw.services.ServicesFacade;
+import edu.eci.arsw.samples.model.Cliente;
+import edu.eci.arsw.services.ServicioCliente;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +20,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author hcadavid
+ * @author castellanosisa
  */
 @RestController
-@RequestMapping("/blueprints")
-public class BlueprintController {
+@RequestMapping("/cliente")
+public class ControladorCliente {
     
     @Autowired
-    ServicesFacade services;
+    ServicioCliente services;
     
     
     @RequestMapping(value="/check",method = RequestMethod.GET)        
@@ -36,25 +36,21 @@ public class BlueprintController {
     }
     
     @RequestMapping(method = RequestMethod.POST)        
-    public ResponseEntity<?> addBlueprint(@RequestBody Blueprint p) {       
-        services.addNewBlueprint(p.getName(),p);
+    public ResponseEntity<?> agregarCliente(@RequestBody Cliente c) {       
+        services.agregarCliente(c.getCedula()+"",c);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    
     @RequestMapping(method = RequestMethod.GET)
-    public Set<String> allBlueprintNames() {       
-        return services.getBlueprintNames();
+    public Set<String> getIdClientes() {       
+        return services.getIdClientes();
     }
     
-    @RequestMapping(value = "/{blueprintname}",method = RequestMethod.GET)        
-    public Blueprint getABlueprint(@PathVariable("blueprintname") String blueprintname) {       
-        return services.getBlueprintByName(blueprintname);
+    @RequestMapping(value = "/{idCliente}",method = RequestMethod.GET)        
+    public Cliente getCliente(@PathVariable("idCliente") String cedula) {       
+        return services.getCliente(cedula);
     }
 
-    
-    
-    
-    
+
 }
 
