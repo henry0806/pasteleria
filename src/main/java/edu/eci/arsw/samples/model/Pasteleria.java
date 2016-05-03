@@ -19,6 +19,13 @@ public class Pasteleria {
     private ArrayList<Sucursal> sucursales;
     private ArrayList<Producto> productos;
 
+    public Pasteleria(int nit, String nombre, String paginaWeb) {
+        this.nit = nit;
+        this.nombre = nombre;
+        this.paginaWeb = paginaWeb;
+        
+    }
+
     public int getNit() {
         return nit;
     }

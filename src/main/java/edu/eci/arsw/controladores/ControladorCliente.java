@@ -6,7 +6,7 @@
 package edu.eci.arsw.controladores;
 
 import edu.eci.arsw.samples.model.Cliente;
-import edu.eci.arsw.services.ServicioCliente;
+import edu.eci.arsw.services.Servicios;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControladorCliente {
     
     @Autowired
-    ServicioCliente services;
+    Servicios services;
     
     
     @RequestMapping(value="/check",method = RequestMethod.GET)        

@@ -17,10 +17,20 @@ public class Sucursal {
     private int numero;
     private int telefono; 
     private String direccion; 
-    private ArrayList<Inventario> asistentes;
+    private ArrayList<AsistentePasteleria> asistentes;
     private ArrayList<Pedido>pedidos;
     private ArrayList<Cliente>clientes;
     private Pasteleria pasteleria;
+    private Inventario inventario;
+
+    public Sucursal(int numero, int telefono, String direccion, ArrayList<AsistentePasteleria> asistentes, Pasteleria pasteleria, Inventario inventario) {
+        this.numero=numero;
+                this.telefono=telefono;
+                this.direccion=direccion;
+                this.asistentes=asistentes;
+                this.pasteleria=pasteleria;
+                this.inventario=inventario;
+    }
 
 
     public int getNumero() {
@@ -47,11 +57,11 @@ public class Sucursal {
         this.direccion = direccion;
     }
 
-    public ArrayList<Inventario> getAsistentes() {
+    public ArrayList<AsistentePasteleria> getAsistentes() {
         return asistentes;
     }
 
-    public void setAsistentes(ArrayList<Inventario> asistentes) {
+    public void setAsistentes(ArrayList<AsistentePasteleria> asistentes) {
         this.asistentes = asistentes;
     }
 
