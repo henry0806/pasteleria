@@ -18,6 +18,13 @@ public class AsistentePasteleria {
     private ArrayList<Cliente> clientes;
     private Sucursal sucursal;
 
+    public AsistentePasteleria(String nombre, int cedula, Sucursal sucursal){
+        this.nombre = nombre;
+        this.cedula = cedula;
+        this.sucursal = sucursal;
+    }
+    
+    
     public String getNombre() {
         return nombre;
     }

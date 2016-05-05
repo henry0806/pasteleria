@@ -33,6 +33,38 @@ app.controller('controlInventarios',
                 });
    };
 });
+
+app.controller('controlPastelerias',
+    function ($scope, $http) {
+    $scope.pastelerias = [];
+    $scope.idPasteleriaSeleccionado;
+    $scope.obtenerPastelerias = function(){
+        $http.get('rest/pasteleria').
+                success(function (data, status, headers, config) {
+                    $scope.pastelerias = data;
+                    alert('success!');
+                }). 
+                error(function (data, status, headers, config) {
+                    alert('error' + headers);
+                });
+   };
+});
+
+app.controller('controlSucursales',
+    function ($scope, $http) {
+    $scope.sucursales = [];
+    $scope.idSucursalSeleccionado;
+    $scope.obtenerSucursales = function(){
+        $http.get('rest/sucursales').
+                success(function (data, status, headers, config) {
+                    $scope.sucursales = data;
+                    alert('success!');
+                }). 
+                error(function (data, status, headers, config) {
+                    alert('error' + headers);
+                });
+   };
+});
   
 })();
 

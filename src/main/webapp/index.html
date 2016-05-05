@@ -28,6 +28,23 @@
             </select>
             <button ng-click="obtenerInventarios()">Cargar inventarios</button>
         </div>
+    <div ng-controller="controlPastelerias" >
+        <select ng-model="idPasteleriaSeleccionado">
+            <option ng-repeat="o in pastelerias" value="{{o}}">
+                {{o}}
+            </option>
+        </select>
+        <button ng-click="obtenerPastelerias()">Cargar pastelerias</button>
+    </div>
         
+        <div ng-controller="controlSucursales" >
+            <select ng-model="idSucursalSeleccionado">
+                <option ng-repeat="o in sucursales" value="{{o}}">
+                    {{o}}
+                </option>
+            </select>
+            <button ng-click="obtenerSucursales()">Cargar sucursales</button>
+        </div>
+
     </body>
 </html>

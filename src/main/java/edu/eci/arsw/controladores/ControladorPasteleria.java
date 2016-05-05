@@ -5,7 +5,7 @@
  */
 package edu.eci.arsw.controladores;
 
-import edu.eci.arsw.samples.model.Inventario;
+import edu.eci.arsw.samples.model.Pasteleria;
 import edu.eci.arsw.services.Servicios;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/inventario")
-
-public class ControladorInventario {
+@RequestMapping("/pasteleria")
+public class ControladorPasteleria {
     
     @Autowired
     Servicios services;
@@ -37,18 +36,21 @@ public class ControladorInventario {
     }
     
     @RequestMapping(method = RequestMethod.POST)        
-    public ResponseEntity<?> agregarInventario(@RequestBody Inventario in) {       
-        services.agregarInventario(in);
+    public ResponseEntity<?> agregarPasteleria(@RequestBody Pasteleria p) {       
+        services.agregarPasteleria(p);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ArrayList<Inventario> getInventarios() {       
-        return services.getInventarios();
+    public ArrayList<Pasteleria> getPastelerias() {       
+        return services.getPastelerias();
     }
     
-    @RequestMapping(value = "/{idInventario}",method = RequestMethod.GET)        
-    public Inventario getIdInventario(@PathVariable("idInventario") int numero) {       
-        return services.getIdInventario(numero);
+    @RequestMapping(value = "/{idPasteleria}",method = RequestMethod.GET)        
+    public Pasteleria getIdPasteleria(@PathVariable("idPasteleria") int nit) {       
+        return services.getIdPasteleria(nit);
     }
+
+    
+    
 }

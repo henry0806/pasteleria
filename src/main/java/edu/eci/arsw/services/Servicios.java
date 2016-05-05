@@ -12,9 +12,6 @@ import edu.eci.arsw.samples.model.Inventario;
 import edu.eci.arsw.samples.model.Pasteleria;
 import edu.eci.arsw.samples.model.Sucursal;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
 import org.springframework.stereotype.Service;
 
 /**
@@ -26,70 +23,74 @@ import org.springframework.stereotype.Service;
 public class Servicios {
     
     //Pasteleria
-    private static final Map<String,Pasteleria> pasteleria = new LinkedHashMap<>();
+    private static final ArrayList<Pasteleria> pasteleria = new ArrayList<>();
     //Sucursal
-    private static final Map<String,Sucursal> sucursal = new LinkedHashMap<>();
-    private static final ArrayList<AsistentePasteleria> asistentes = new ArrayList<>();
+    private static final ArrayList<Sucursal> sucursal = new ArrayList<>();
+    
     //Cliente
-    private static final Map<String,Cliente> cliente = new LinkedHashMap<>();
+    private static final ArrayList<Cliente> cliente = new ArrayList<>();
     //Inventario
-    private static final Map<String,Inventario> inventario = new LinkedHashMap<>();
+    private static final ArrayList<Inventario> inventario = new ArrayList<>();
     private static final ArrayList<Ingrediente> ingredientes = new ArrayList<>();
+    //Asistente pasteleria
+    private static final ArrayList<AsistentePasteleria> asistentes = new ArrayList<>();
     
     static{
         //Pasteleria
-        pasteleria.put("1", new Pasteleria(1,"nicol","nico.co"));
+        pasteleria.add(new Pasteleria(1,"nicol","nico.co"));
         //Sucursal
-        sucursal.put("1" ,new Sucursal(1,1,"ak",asistentes,getPasteleria("i"), getInventario("1")));
+        sucursal.add(new Sucursal(1,1,"ak",asistentes,pasteleria.get(0)));
         //Cliente
-        cliente.put("1", new Cliente("isabel",1,"av",311,"@bla"));
+        cliente.add(new Cliente("isabel",1,"av",311,"@bla"));
         //Inventario
         ingredientes.add(new Ingrediente("Vainilla","masa",200,1));
-        inventario.put("1", new Inventario(1, getSucursal("1"), ingredientes));
+        inventario.add(new Inventario(1, sucursal.get(0), ingredientes));
+        //Asistente pasteleria
+        
     }
     
     
     //Pasteleria
-    public void agregarPasteleria(String nombre,Pasteleria pa){
-        pasteleria.put(nombre,pa);
+    public void agregarPasteleria(Pasteleria pa){
+        pasteleria.add(pa);
     }
-    public Set<String> getIdPasteleria(){
-        return pasteleria.keySet();
+    public ArrayList<Pasteleria> getPastelerias(){
+        return pasteleria;
     }
-    public static Pasteleria getPasteleria(String id){
+    public static Pasteleria getIdPasteleria(int id){
         return pasteleria.get(id);
     }
     //Sucursal
-    public void agregarSucursal(String numero,Sucursal su){
-        sucursal.put(numero ,su);
+    public void agregarSucursal(Sucursal su){
+        sucursal.add(su);
     }
-    public Set<String> getIdSucursal(){
-        return sucursal.keySet();
+    public ArrayList<Sucursal> getSucursales(){
+        return sucursal;
     }
-    public static Sucursal getSucursal(String id){
+    public static Sucursal getIdSucursal(int id){
         return sucursal.get(id);
     }
     //Cliente
-    public void agregarCliente(String nombre,Cliente cl){
-        cliente.put(nombre,cl);
+    public void agregarCliente(Cliente cl){
+        cliente.add(cl);
     }
-    public Set<String> getIdClientes(){
-        return cliente.keySet();
+    public ArrayList<Cliente> getClientes(){
+        return cliente;
     }
-    public static Cliente getCliente(String id){
+    public static Cliente getIdCliente(int id){
         return cliente.get(id);
     }
     //Inventario
-    public void agregarInventario(String numero,Inventario in){
-        inventario.put(numero ,in);
+    public void agregarInventario(Inventario in){
+        inventario.add(in);
     }
-    public Set<String> getIdInventarios(){
-        return inventario.keySet();
+    public ArrayList<Inventario> getInventarios(){
+        return inventario;
     }
-    public static Inventario getInventario(String id){
+    public static Inventario getIdInventario(int id){
         return inventario.get(id);
     }
-    
+    //Asistente pasteleria
     
     
 }

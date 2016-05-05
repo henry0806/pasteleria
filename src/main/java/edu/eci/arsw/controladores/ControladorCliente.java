@@ -7,8 +7,7 @@ package edu.eci.arsw.controladores;
 
 import edu.eci.arsw.samples.model.Cliente;
 import edu.eci.arsw.services.Servicios;
-import java.util.List;
-import java.util.Set;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,18 +37,18 @@ public class ControladorCliente {
     
     @RequestMapping(method = RequestMethod.POST)        
     public ResponseEntity<?> agregarCliente(@RequestBody Cliente c) {       
-        services.agregarCliente(c.getCedula()+"",c);
+        services.agregarCliente(c);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public Set<String> getIdClientes() {       
-        return services.getIdClientes();
+    public ArrayList<Cliente> getClientes() {       
+        return services.getClientes();
     }
     
     @RequestMapping(value = "/{idCliente}",method = RequestMethod.GET)        
-    public Cliente getCliente(@PathVariable("idCliente") String cedula) {       
-        return services.getCliente(cedula);
+    public Cliente getIdCliente(@PathVariable("idCliente") int cedula) {       
+        return services.getIdCliente(cedula);
     }
 
 

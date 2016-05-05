@@ -5,7 +5,7 @@
  */
 package edu.eci.arsw.controladores;
 
-import edu.eci.arsw.samples.model.Inventario;
+import edu.eci.arsw.samples.model.Sucursal;
 import edu.eci.arsw.services.Servicios;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/inventario")
-
-public class ControladorInventario {
-    
+@RequestMapping("/sucursal")
+public class ControladorSucursal {
     @Autowired
     Servicios services;
     
@@ -37,18 +35,20 @@ public class ControladorInventario {
     }
     
     @RequestMapping(method = RequestMethod.POST)        
-    public ResponseEntity<?> agregarInventario(@RequestBody Inventario in) {       
-        services.agregarInventario(in);
+    public ResponseEntity<?> agregarSucursal(@RequestBody Sucursal s) {       
+        services.agregarSucursal(s);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ArrayList<Inventario> getInventarios() {       
-        return services.getInventarios();
+    public ArrayList<Sucursal> getSucursales() {       
+        return services.getSucursales();
     }
     
-    @RequestMapping(value = "/{idInventario}",method = RequestMethod.GET)        
-    public Inventario getIdInventario(@PathVariable("idInventario") int numero) {       
-        return services.getIdInventario(numero);
+    @RequestMapping(value = "/{idSucursal}",method = RequestMethod.GET)        
+    public Sucursal getIdSucursal(@PathVariable("idSucursal") int nit) {       
+        return services.getIdSucursal(nit);
     }
+
+    
 }

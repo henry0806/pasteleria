@@ -23,13 +23,12 @@ public class Sucursal {
     private Pasteleria pasteleria;
     private Inventario inventario;
 
-    public Sucursal(int numero, int telefono, String direccion, ArrayList<AsistentePasteleria> asistentes, Pasteleria pasteleria, Inventario inventario) {
+    public Sucursal(int numero, int telefono, String direccion, ArrayList<AsistentePasteleria> asistentes, Pasteleria pasteleria) {
         this.numero=numero;
                 this.telefono=telefono;
                 this.direccion=direccion;
                 this.asistentes=asistentes;
                 this.pasteleria=pasteleria;
-                this.inventario=inventario;
     }
 
 
