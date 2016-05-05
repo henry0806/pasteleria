@@ -46,5 +46,15 @@
             <button ng-click="obtenerSucursales()">Cargar sucursales</button>
         </div>
 
+                
+        <div ng-controller="controlAsistentePasteleria" >            
+            <select ng-model="idAsistentePasteleriaSeleccionado">
+                <option ng-repeat="o in asistentes" value="{{o}}">
+                    {{o}}
+                </option>
+            </select>
+            <button ng-click="obtenerAsistentePasteleria()">Cargar Asistentes Pasteleria</button>
+        </div>
+        
     </body>
 </html>

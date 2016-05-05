@@ -55,9 +55,25 @@ app.controller('controlSucursales',
     $scope.sucursales = [];
     $scope.idSucursalSeleccionado;
     $scope.obtenerSucursales = function(){
-        $http.get('rest/sucursales').
+        $http.get('rest/sucursal').
                 success(function (data, status, headers, config) {
                     $scope.sucursales = data;
+                    alert('success!');
+                }). 
+                error(function (data, status, headers, config) {
+                    alert('error' + headers);
+                });
+   };
+});
+
+app.controller('controlAsistentePasteleria',
+    function ($scope, $http) {
+    $scope.asistentes = [];
+    $scope.idAsistentePasteleriaSeleccionado;
+    $scope.obtenerAsistentePasteleria = function(){
+        $http.get('rest/asistentePasteleria').
+                success(function (data, status, headers, config) {
+                    $scope.asistentes = data;
                     alert('success!');
                 }). 
                 error(function (data, status, headers, config) {

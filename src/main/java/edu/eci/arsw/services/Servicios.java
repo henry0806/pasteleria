@@ -5,12 +5,7 @@
  */
 package edu.eci.arsw.services;
 
-import edu.eci.arsw.samples.model.AsistentePasteleria;
-import edu.eci.arsw.samples.model.Cliente;
-import edu.eci.arsw.samples.model.Ingrediente;
-import edu.eci.arsw.samples.model.Inventario;
-import edu.eci.arsw.samples.model.Pasteleria;
-import edu.eci.arsw.samples.model.Sucursal;
+import edu.eci.arsw.samples.model.*;
 import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
@@ -18,15 +13,13 @@ import org.springframework.stereotype.Service;
  *
  * @author 2092252
  */
-
 @Service
 public class Servicios {
-    
+
     //Pasteleria
     private static final ArrayList<Pasteleria> pasteleria = new ArrayList<>();
     //Sucursal
     private static final ArrayList<Sucursal> sucursal = new ArrayList<>();
-    
     //Cliente
     private static final ArrayList<Cliente> cliente = new ArrayList<>();
     //Inventario
@@ -34,63 +27,112 @@ public class Servicios {
     private static final ArrayList<Ingrediente> ingredientes = new ArrayList<>();
     //Asistente pasteleria
     private static final ArrayList<AsistentePasteleria> asistentes = new ArrayList<>();
-    
-    static{
+    //Productos
+    private static final ArrayList<Producto> productos = new ArrayList<>();    
+    //Pedidos
+    private static final ArrayList<Pedido> pedidos = new ArrayList<>();
+
+    static {
         //Pasteleria
-        pasteleria.add(new Pasteleria(1,"nicol","nico.co"));
-        //Sucursal
-        sucursal.add(new Sucursal(1,1,"ak",asistentes,pasteleria.get(0)));
-        //Cliente
-        cliente.add(new Cliente("isabel",1,"av",311,"@bla"));
-        //Inventario
-        ingredientes.add(new Ingrediente("Vainilla","masa",200,1));
-        inventario.add(new Inventario(1, sucursal.get(0), ingredientes));
+        pasteleria.add(new Pasteleria(1, "nicol", "nico.co"));
         //Asistente pasteleria
-        
+        asistentes.add(new AsistentePasteleria("Henry", 1));
+        //Sucursal
+        sucursal.add(new Sucursal(1, 1, "ak", asistentes, pasteleria.get(0)));
+        //Cliente
+        cliente.add(new Cliente("isabel", 1, "av", 311, "@bla"));
+        //Inventario
+        ingredientes.add(new Ingrediente("Vainilla", "masa", 200, 1));
+        inventario.add(new Inventario(1, sucursal.get(0), ingredientes));
+
     }
-    
-    
+
     //Pasteleria
-    public void agregarPasteleria(Pasteleria pa){
+    public void agregarPasteleria(Pasteleria pa) {
         pasteleria.add(pa);
     }
-    public ArrayList<Pasteleria> getPastelerias(){
+    public ArrayList<Pasteleria> getPastelerias() {
         return pasteleria;
     }
-    public static Pasteleria getIdPasteleria(int id){
+    public static Pasteleria getIdPasteleria(int id) {
         return pasteleria.get(id);
     }
+
     //Sucursal
-    public void agregarSucursal(Sucursal su){
+    public void agregarSucursal(Sucursal su) {
         sucursal.add(su);
     }
-    public ArrayList<Sucursal> getSucursales(){
+    public ArrayList<Sucursal> getSucursales() {
         return sucursal;
     }
-    public static Sucursal getIdSucursal(int id){
+    public static Sucursal getIdSucursal(int id) {
         return sucursal.get(id);
     }
+
     //Cliente
-    public void agregarCliente(Cliente cl){
+    public void agregarCliente(Cliente cl) {
         cliente.add(cl);
     }
-    public ArrayList<Cliente> getClientes(){
+    public ArrayList<Cliente> getClientes() {
         return cliente;
     }
-    public static Cliente getIdCliente(int id){
+    public static Cliente getIdCliente(int id) {
         return cliente.get(id);
     }
+
     //Inventario
-    public void agregarInventario(Inventario in){
+    public void agregarInventario(Inventario in) {
         inventario.add(in);
     }
-    public ArrayList<Inventario> getInventarios(){
+    public ArrayList<Inventario> getInventarios() {
         return inventario;
     }
-    public static Inventario getIdInventario(int id){
+    public static Inventario getIdInventario(int id) {
         return inventario.get(id);
     }
+
     //Asistente pasteleria
+    public void agregarAsistentePasteleria(AsistentePasteleria as) {
+        asistentes.add(as);
+    }
+    public ArrayList<AsistentePasteleria> getAsistentesPasteleria() {
+        return asistentes;
+    }
+    public static AsistentePasteleria getIdAsistentePasteleria(int id) {
+        return asistentes.get(id);
+    }
+
+    //Producto
+    public void agregarProducto(Producto as) {
+        productos.add(as);
+    }
+    public ArrayList<Producto> getProductos() {
+        return productos;
+    }
+    public static Producto getIdProducto(int id) {
+        return productos.get(id);
+    }
     
+    //Ingrediente
+    public void agregarIngrediente(Ingrediente as) {
+        ingredientes.add(as);
+    }
+    public ArrayList<Ingrediente> getIngredientes() {
+        return ingredientes;
+    }
+    public static Ingrediente getIdIngrediente(int id) {
+        return ingredientes.get(id);
+    }
     
+    //Pedido
+    public void agregarPedido(Pedido as) {
+        pedidos.add(as);
+    }
+    public ArrayList<Pedido> getPedidos() {
+        return pedidos;
+    }
+    public static Pedido getIdPedido(int id) {
+        return pedidos.get(id);
+    }
+
 }

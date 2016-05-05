@@ -23,34 +23,30 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/cliente")
-
 public class ControladorCliente {
-    
+
     @Autowired
     Servicios services;
-    
-    
-    @RequestMapping(value="/check",method = RequestMethod.GET)        
+
+    @RequestMapping(value = "/check", method = RequestMethod.GET)
     public String check() {
-        return "REST API OK";        
+        return "REST API OK";
     }
-    
-    @RequestMapping(method = RequestMethod.POST)        
-    public ResponseEntity<?> agregarCliente(@RequestBody Cliente c) {       
+
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<?> agregarCliente(@RequestBody Cliente c) {
         services.agregarCliente(c);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ArrayList<Cliente> getClientes() {       
+    public ArrayList<Cliente> getClientes() {
         return services.getClientes();
     }
-    
-    @RequestMapping(value = "/{idCliente}",method = RequestMethod.GET)        
-    public Cliente getIdCliente(@PathVariable("idCliente") int cedula) {       
+
+    @RequestMapping(value = "/{idCliente}", method = RequestMethod.GET)
+    public Cliente getIdCliente(@PathVariable("idCliente") int cedula) {
         return services.getIdCliente(cedula);
     }
 
-
 }
-

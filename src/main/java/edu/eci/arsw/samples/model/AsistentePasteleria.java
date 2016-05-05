@@ -16,12 +16,10 @@ public class AsistentePasteleria {
     private String nombre;
     private int cedula;
     private ArrayList<Cliente> clientes;
-    private Sucursal sucursal;
 
-    public AsistentePasteleria(String nombre, int cedula, Sucursal sucursal){
+    public AsistentePasteleria(String nombre, int cedula){
         this.nombre = nombre;
         this.cedula = cedula;
-        this.sucursal = sucursal;
     }
     
     
@@ -47,16 +45,6 @@ public class AsistentePasteleria {
 
     public void setClientes(ArrayList<Cliente> clientes) {
         this.clientes = clientes;
-    }
-
-    public Sucursal getSucursal() {
-        return sucursal;
-    }
-
-    public void setSucursal(Sucursal sucursal) {
-        this.sucursal = sucursal;
-    }
-    
-    
+    }  
     
 }
