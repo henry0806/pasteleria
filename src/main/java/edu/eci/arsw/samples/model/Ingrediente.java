@@ -11,16 +11,22 @@ package edu.eci.arsw.samples.model;
  * @author felipe
  */
 public class Ingrediente {
+   
     private String nombre;
-    private String tipo;
+    //tipos: 1=masa, 2=decorado, 3=adicion
+    private int tipo;
     private int precio;
     private int tamaño;
+    private String forma;
 
-    public Ingrediente(String nombre, String tipo, int precio, int tamaño){
+    
+
+    public Ingrediente(String nombre, int tipo, int precio, int tamaño, String forma){
         this.nombre=nombre;
         this.tipo=tipo;
         this.precio=precio;
         this.tamaño=tamaño;
+        this.forma=forma;
     }
     
     public String getNombre() {
@@ -31,11 +37,11 @@ public class Ingrediente {
         this.nombre = nombre;
     }
 
-    public String getTipo() {
+    public int getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 
@@ -55,4 +61,13 @@ public class Ingrediente {
         this.tamaño = tamaño;
     }
 
+    
+    public String getForma() {
+        return forma;
+    }
+
+    public void setForma(String forma) {
+        this.forma = forma;
+    }
+    
 }

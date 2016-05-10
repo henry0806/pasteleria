@@ -19,7 +19,7 @@ public class Pedido {
     private ArrayList<Producto> productos;
     private Sucursal sucursal;
     private Cliente cliente;
-
+    
     public int getNumPedido() {
         return numPedido;
     }

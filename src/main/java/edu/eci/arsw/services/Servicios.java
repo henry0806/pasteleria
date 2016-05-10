@@ -28,7 +28,7 @@ public class Servicios {
     //Asistente pasteleria
     private static final ArrayList<AsistentePasteleria> asistentes = new ArrayList<>();
     //Productos
-    private static final ArrayList<Producto> productos = new ArrayList<>();    
+    private static final ArrayList<Producto> productos = new ArrayList<>();
     //Pedidos
     private static final ArrayList<Pedido> pedidos = new ArrayList<>();
 
@@ -40,9 +40,38 @@ public class Servicios {
         //Sucursal
         sucursal.add(new Sucursal(1, 1, "ak", asistentes, pasteleria.get(0)));
         //Cliente
-        cliente.add(new Cliente("isabel", 1, "av", 311, "@bla"));
+        cliente.add(new Cliente("Isabel", 1, "av", 311, "@bla"));
         //Inventario
-        ingredientes.add(new Ingrediente("Vainilla", "masa", 200, 1));
+        ingredientes.add(new Ingrediente("Vainilla", 1, 200, 1, "Circular"));
+        ingredientes.add(new Ingrediente("Chocolate", 1, 200, 1, "Circular"));
+        ingredientes.add(new Ingrediente("Arequipe", 1, 200, 1, "Circular"));
+        ingredientes.add(new Ingrediente("Sin gluten", 1, 200, 1, "Circular"));
+        ingredientes.add(new Ingrediente("Foundant", 2, 200, 1, "Circular"));
+        ingredientes.add(new Ingrediente("Ice", 2, 200, 1, "Circular"));
+        ingredientes.add(new Ingrediente("Gomitas", 3, 200, 1, "Circular"));
+        ingredientes.add(new Ingrediente("Chispitas", 3, 200, 1, "Circular"));
+        ingredientes.add(new Ingrediente("Chips Chocolate", 3, 200, 1, "Circular"));
+             
+        ingredientes.add(new Ingrediente("Chocolate", 1, 200, 1, "Cuadrada"));
+        ingredientes.add(new Ingrediente("Arequipe", 1, 200, 1, "Cuadrada"));
+        ingredientes.add(new Ingrediente("Vainilla", 1, 200, 1, "Cuadrada"));
+        ingredientes.add(new Ingrediente("Sin gluten", 1, 200, 1, "Cuadrada"));
+        ingredientes.add(new Ingrediente("Foundant", 2, 200, 1, "Cuadrada"));
+        ingredientes.add(new Ingrediente("Ice", 2, 200, 1, "Cuadrada"));
+        ingredientes.add(new Ingrediente("Gomitas", 3, 200, 1, "Cuadrada"));
+        ingredientes.add(new Ingrediente("Chispitas", 3, 200, 1, "Cuadrada"));
+        ingredientes.add(new Ingrediente("Chips Chocolate", 3, 200, 1, "Cuadrada"));
+     
+        ingredientes.add(new Ingrediente("Vainilla", 1, 200, 1, "Triangular"));
+        ingredientes.add(new Ingrediente("Chocolate", 1, 200, 1, "Triangular"));
+        ingredientes.add(new Ingrediente("Arequipe", 1, 200, 1, "Triangular"));
+        ingredientes.add(new Ingrediente("Sin gluten", 1, 200, 1, "Triangular"));
+        ingredientes.add(new Ingrediente("Foundant", 2, 200, 1, "Triangular"));
+        ingredientes.add(new Ingrediente("Ice", 2, 200, 1, "Triangular"));
+        ingredientes.add(new Ingrediente("Gomitas", 3, 200, 1, "Triangular"));
+        ingredientes.add(new Ingrediente("Chispitas", 3, 200, 1, "Triangular"));
+        ingredientes.add(new Ingrediente("Chips Chocolate", 3, 200, 1, "Triangular"));   
+        
         inventario.add(new Inventario(1, sucursal.get(0), ingredientes));
 
     }
@@ -51,9 +80,11 @@ public class Servicios {
     public void agregarPasteleria(Pasteleria pa) {
         pasteleria.add(pa);
     }
+
     public ArrayList<Pasteleria> getPastelerias() {
         return pasteleria;
     }
+
     public static Pasteleria getIdPasteleria(int id) {
         return pasteleria.get(id);
     }
@@ -123,7 +154,18 @@ public class Servicios {
     public static Ingrediente getIdIngrediente(int id) {
         return ingredientes.get(id);
     }
+    public ArrayList<String> getNombresIngredientes(int tipo, String forma) {
+        ArrayList<String> nombres = new ArrayList<>();
+        for (int i = 0; i < ingredientes.size(); i++) {
+            if (ingredientes.get(i).getTipo() == tipo && ingredientes.get(i).getForma().equals(forma)) {
+                nombres.add(ingredientes.get(i).getNombre());
+            }
+        }
+        return nombres;
+    }
     
+    
+
     //Pedido
     public void agregarPedido(Pedido as) {
         pedidos.add(as);
@@ -134,5 +176,8 @@ public class Servicios {
     public static Pedido getIdPedido(int id) {
         return pedidos.get(id);
     }
+    
+    
 
 }
+

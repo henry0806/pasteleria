@@ -13,26 +13,18 @@ import java.util.ArrayList;
  * @author castellanosisa
  */
 public class Producto {
-    private int id;
-    private String nombre;
+    private int tipo;
     private Pasteleria pasteleria;
     private ArrayList<Ingrediente> ingredientes;
     private ArrayList<Pedido> pedidos;
 
-    public int getId() {
-        return id;
+    
+    public int getTipo() {
+        return tipo;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 
     public Pasteleria getPasteleria() {
@@ -58,6 +50,5 @@ public class Producto {
     public void setPedidos(ArrayList<Pedido> pedidos) {
         this.pedidos = pedidos;
     }
-    
-    
+
 }

@@ -5,7 +5,6 @@
  */
 package edu.eci.arsw.samples.model;
 
-
 import java.util.ArrayList;
 
 /**
@@ -13,11 +12,12 @@ import java.util.ArrayList;
  * @author castellanosisa
  */
 public class Inventario {
+
     private int numero;
     private Sucursal sucursal;
     private ArrayList<Ingrediente> ingredientes;
-    
-    public Inventario(int numero, Sucursal sucursal,ArrayList<Ingrediente> ingredientes){
+
+    public Inventario(int numero, Sucursal sucursal, ArrayList<Ingrediente> ingredientes) {
         this.numero = numero;
         this.sucursal = sucursal;
         this.ingredientes = ingredientes;
@@ -26,7 +26,7 @@ public class Inventario {
     public int getNumero() {
         return numero;
     }
-                
+
     public void setNumero(int numero) {
         this.numero = numero;
     }
@@ -47,5 +47,6 @@ public class Inventario {
         this.ingredientes = ingredientes;
     }
 
-    
+
+
 }
